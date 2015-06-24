@@ -16,7 +16,7 @@
     xmlns:abstract="http://id.loc.gov/vocabulary/abstract#"
     xmlns:ri="http://id.loc.gov/ontologies/RecordInfo#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="http://www.loc.gov/mods/rdf/v1">
+    xml:base="http://www.loc.gov/mods/rdf/v1">
   <owl:Ontology rdf:about="">
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
     <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
@@ -34,57 +34,45 @@
     <owl:imports rdf:resource="http://marklogic3.loc.gov:8281/ontologies/Identifiers"/>
     <owl:imports rdf:resource="http://purl.org/vocab/vann/"/>
   </owl:Ontology>
+  
+  <!-- Classes -->
   <owl:Class rdf:about="ri:AdminMetadata">
     <rdfs:label>Administrative Metadata</rdfs:label>
     <rdfs:comment>Administrative metadata for the description</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:ID="ModsResource">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >MODS - A  MODS Resource</rdfs:label>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >
-The resource which is the subject of this description.
-  </rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MODS - A  MODS Resource</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The resource which is the subject of this description.</rdfs:comment>
     <owl:equivalentClass rdf:resource="http://id.loc.gov/vocabulary/resourceTypes/Res"/>
   </owl:Class>
   <owl:Class rdf:ID="Cartographics">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >MODS - Cartographic Information</rdfs:label>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Aggregates cartographic properties.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MODS - Cartographic Information</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregates cartographic properties.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:ID="NoteGroup">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >MODS - Note Typed</rdfs:label>
-    <rdfs:comment>Aggregates a note with its type.  </rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MODS - Note Typed</rdfs:label>
+    <rdfs:comment>Aggregates a note with its type.</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:ID="Part">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >MODS - Part</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MODS - Part</rdfs:label>
     <rdfs:comment xml:lang="en">An aggregator for part properties.</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:ID="RoleRelationship">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >MODS - Role Relationship</rdfs:label>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Aggregates a name with its role. </rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MODS - Role Relationship</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregates a name with its role. </rdfs:comment>
   </owl:Class>
   <owl:Class rdf:ID="Location">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >MODS - Location</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MODS - Location</rdfs:label>
     <rdfs:comment xml:lang="en">An aggregator for location properties.</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:ID="IdentifierGroup">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Used when the identifier type is not from the controlled list. Bundles together an identifier and its type.</rdfs:comment>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >MODS - Identifier - Typed</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used when the identifier type is not from the controlled list. Bundles together an identifier and its type.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MODS - Identifier - Typed</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   </owl:Class>
   <owl:Class rdf:ID="ClassificationGroup">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >MODS - Classification Group</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MODS - Classification Group</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >For a classification whose scheme is not part of the controlled vocabulary. Bundles together a classification number and scheme.</rdfs:comment>
@@ -93,6 +81,8 @@ The resource which is the subject of this description.
     <rdfs:comment> An aggregator for copy properties.</rdfs:comment>
     <rdfs:label>MODS - Location - Copy</rdfs:label>
   </owl:Class>
+  
+  <!-- Object Properties -->
   <owl:ObjectProperty rdf:ID="subjectTemporal">
     <rdfs:range rdf:resource="http://www.loc.gov/mads/rdf/v1#Temporal"/>
     <rdfs:domain rdf:resource="#ModsResource"/>
@@ -109,8 +99,7 @@ The resource which is the subject of this description.
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="#subject"/>
     </rdfs:subPropertyOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Subject - Complex</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject - Complex</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="subjectHierarchicalGeographic">
     <rdfs:range rdf:resource="http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic"/>
@@ -262,9 +251,7 @@ The resource which is the subject of this description.
   <owl:ObjectProperty rdf:ID="role">
     <owl:equivalentProperty rdf:resource="http://id.loc.gov/vocabulary/relators/role"/>
     <rdfs:domain rdf:resource="#ModsResource"/>
-    <rdfs:comment>role is an abstract property, for which all terms in the relator vocabulary of roles become subproperties.  Thus for example 'relator:artist' refers to the role 'artist' within that vocabulary. (The prefix 'relator:' is used to denote the namespace for the "relator" vocabulary. 
-
-The property 'relator:artist' relates the resource to an artist associated with the resource, represented as a mads name.</rdfs:comment>
+    <rdfs:comment>role is an abstract property, for which all terms in the relator vocabulary of roles become subproperties.  Thus for example 'relator:artist' refers to the role 'artist' within that vocabulary. (The prefix 'relator:' is used to denote the namespace for the "relator" vocabulary. The property 'relator:artist' relates the resource to an artist associated with the resource, represented as a mads name.</rdfs:comment>
     <rdfs:label>Role (unbound)</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="subjectTitle">
@@ -272,8 +259,7 @@ The property 'relator:artist' relates the resource to an artist associated with 
     <rdfs:domain rdf:resource="#ModsResource"/>
     <rdfs:comment>A subject of the resource which is a title, expressed in terms of a MADS Title.</rdfs:comment>
     <rdfs:subPropertyOf rdf:resource="#subject"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Subject - Title</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subject - Title</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="subjectGeographicCode">
     <rdfs:range rdf:resource="http://www.loc.gov/mads/rdf/v1#Geographic"/>
@@ -283,10 +269,8 @@ The property 'relator:artist' relates the resource to an artist associated with 
     <rdfs:subPropertyOf rdf:resource="#subjectGeographic"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="noteGroup">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Note  Group</rdfs:label>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Used for a note with a type (other than "statement of responsibility")</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Note  Group</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used for a note with a type (other than "statement of responsibility")</rdfs:comment>
     <rdfs:domain rdf:resource="#ModsResource"/>
     <rdfs:range rdf:resource="#NoteGroup"/>
   </owl:ObjectProperty>
@@ -305,10 +289,8 @@ The property 'relator:artist' relates the resource to an artist associated with 
     <rdfs:label>Subject - Name Subject</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="classificationGroup">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Classification Group</rdfs:label>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Used when classification scheme is not in controlled vocabulary. Bundles together the classification number with its scheme.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Classification Group</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used when classification scheme is not in controlled vocabulary. Bundles together the classification number with its scheme.</rdfs:comment>
     <rdfs:domain rdf:resource="#ModsResource"/>
     <rdfs:range rdf:resource="#ClassificationGroup"/>
   </owl:ObjectProperty>
@@ -788,12 +770,8 @@ The property 'relator:artist' relates the resource to an artist associated with 
     <rdfs:label>Media Type</rdfs:label>
     <rdfs:domain rdf:resource="#ModsResource"/>
   </owl:DatatypeProperty>
-  <owl:NamedIndividual rdf:ID="access">
-    <rdf:type rdf:resource="http://www.loc.gov/mods/rdf/ReformattingQuality"/>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:ID="digitizedMicrofilm">
-    <rdf:type rdf:resource="http://www.loc.gov/mods/rdf/DigitalOrigin"/>
-  </owl:NamedIndividual>
+  
+  <!-- Annotation Properties -->
   <owl:AnnotationProperty rdf:ID="dateCapturedEnd">
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Date Captured - End</rdfs:label>
@@ -867,9 +845,6 @@ The property 'relator:artist' relates the resource to an artist associated with 
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Date Created -  Start</rdfs:label>
   </owl:AnnotationProperty>
-  <owl:NamedIndividual rdf:ID="integratingResource">
-    <rdf:type rdf:resource="http://www.loc.gov/mods/rdf/Issuance"/>
-  </owl:NamedIndividual>
   <owl:AnnotationProperty rdf:ID="dateOfCopyrightStart">
     <rdfs:subPropertyOf>
       <owl:AnnotationProperty rdf:ID="dateOfCopyright">
@@ -949,6 +924,17 @@ The property 'relator:artist' relates the resource to an artist associated with 
     <rdfs:domain rdf:resource="#ModsResource"/>
     <owl:equivalentProperty rdf:resource="http://id.loc.gov/vocabulary/classSchemes/classification"/>
   </owl:AnnotationProperty>
+
+  <!-- Named Individual -->
+  <owl:NamedIndividual rdf:ID="integratingResource">
+    <rdf:type rdf:resource="http://www.loc.gov/mods/rdf/Issuance"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="access">
+    <rdf:type rdf:resource="http://www.loc.gov/mods/rdf/ReformattingQuality"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="digitizedMicrofilm">
+    <rdf:type rdf:resource="http://www.loc.gov/mods/rdf/DigitalOrigin"/>
+  </owl:NamedIndividual>
 </rdf:RDF>
 
 <!-- Created with TopBraid -->
