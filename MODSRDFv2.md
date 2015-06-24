@@ -1,6 +1,8 @@
 # About
 This is a scratch pad for my notes on MODSRDF v1 and pulling together the GitHub Issues/Notes for MODSRDF v2. Use the namespace doc for legit information on MODSRDF v1: http://www.loc.gov/standards/mods/modsrdf/v1/
 
+For reference, if you're still reading this, **bold** means a v2 datapoint added by reading through https://github.com/blunalucero/MODS-RDF/issues/.
+
 # Namespaces:
     - abstract=http://id.loc.gov/vocabulary/abstract#
     - access=http://id.loc.gov/vocabulary/access#
@@ -41,15 +43,33 @@ This is a scratch pad for my notes on MODSRDF v1 and pulling together the GitHub
 		- label: Administrative Metadata
 		- comment: Administrative metadata for the description
 		- URI: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
-	- *ModsResource*
-		- label: MODS - A MODS Resource
-		- comment: The resource which is the subject of this description.
-		- URI: http://www.loc.gov/mods/rdf/v1#ModsResource
-		- Equivalent: http://id.loc.gov/vocabulary/resourceTypes/Res
 	- *Cartographics*
 		- label: MODS - Cartographic Information
 		- comment: Aggregates cartographic properties
 		- URI: http://www.loc.gov/mods/rdf/v1#Cartographics
+  - *ClassificationGroup*
+    - label: MODS - Classification Group
+    - comment: For a classification whose scheme is not part of the controlled vocabulary. Bundles together a classification number and scheme.
+    - subClassOf: owl:Thing
+    - URI: http://www.loc.gov/mods/rdf/v1#ClassificationGroup
+  - *IdentifierGroup*
+    - label: MODS - Identifier - Typed
+    - comment: Used when the identifier type is not from the controlled list. Bundles together an identifier and its type.
+    - subClassOf: owl:Thing
+    - URI: http://www.loc.gov/mods/rdf/v1#IdentifierGroup
+  - *Location*
+    - label: MODS - Location
+    - comment: Aggregator for location properties
+    - URI: http://www.loc.gov/mods/rdf/v1#Location
+  - *LocationCopy*
+    - label: MODS - Location - Copy
+    - comment: An aggregator for copy properties
+    - URI: http://www.loc.gov/mods/rdf/v1#LocationCopy
+  - *ModsResource*
+    - label: MODS - A MODS Resource
+    - comment: The resource which is the subject of this description.
+    - URI: http://www.loc.gov/mods/rdf/v1#ModsResource
+    - Equivalent: http://id.loc.gov/vocabulary/resourceTypes/Res
 	- *NoteGroup*
 		- label: MODS - Note Typed
 		- comment: Aggregates a note with its type.
@@ -62,24 +82,6 @@ This is a scratch pad for my notes on MODSRDF v1 and pulling together the GitHub
 		- label: MODS - Role Relationship
 		- comment: Aggregates a name with its role.
 		- URI: http://www.loc.gov/mods/rdf/v1#RoleRelationship
-	- *Location*
-		- label: MODS - Location
-		- comment: Aggregator for location properties
-		- URI: http://www.loc.gov/mods/rdf/v1#Location
-	- *IdentifierGroup*
-		- label: MODS - Identifier - Typed
-		- comment: Used when the identifier type is not from the controlled list. Bundles together an identifier and its type.
-		- subClassOf: owl:Thing
-		- URI: http://www.loc.gov/mods/rdf/v1#IdentifierGroup
-	- *ClassificationGroup*
-		- label: MODS - Classification Group
-		- comment: For a classification whose scheme is not part of the controlled vocabulary. Bundles together a classification number and scheme.
-		- subClassOf: owl:Thing
-		- URI: http://www.loc.gov/mods/rdf/v1#ClassificationGroup
-	- *LocationCopy*
-		- label: MODS - Location - Copy
-		- comment: An aggregator for copy properties
-		- URI: http://www.loc.gov/mods/rdf/v1#LocationCopy
 
 # Object Properties:
   - *adminMetadata*
@@ -702,7 +704,7 @@ This is a scratch pad for my notes on MODSRDF v1 and pulling together the GitHub
     - domain: #ModsResource
     - label: Date of Copyright - End
   - *dateModifiedStart*
-    - subPropertyOf rdf:resource="#dateModified
+    - subPropertyOf: #dateModified
     - domain: #ModsResource
     - comment: When there is both a start and end for the modification date this is the start date. 
     - label: Date Modified -  Start
@@ -720,6 +722,11 @@ This is a scratch pad for my notes on MODSRDF v1 and pulling together the GitHub
     - label: Classification
     - domain: #ModsResource
     - equivalentProperty: http://id.loc.gov/vocabulary/classSchemes/classification
+  - **titleForSort**
+    - comment: titleForSort includes the non-title information (because it may be useful for sorting) that the actual title does not, as well as drops the non-sort characters included in title information. https://github.com/blunalucero/MODS-RDF/issues/1
+    - label: Title for Sort
+    - domain: #ModsResource
+    - subPropertyOf: #title
 
 # Named Individual
   - *integratingResource*
