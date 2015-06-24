@@ -399,6 +399,8 @@
     <rdfs:comment>Relates the described MODS resource to a MODS resource which preceded the described resource.</rdfs:comment>
     <rdfs:label>Related item - Preceding</rdfs:label>
   </owl:ObjectProperty>
+  
+  <!-- Datatype Properties -->
   <owl:DatatypeProperty rdf:ID="partList">
     <rdfs:domain rdf:resource="#Part"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
