@@ -1,753 +1,752 @@
 # About
 This is a scratch pad for my notes on MODSRDF v1 and pulling together the GitHub Issues/Notes for MODSRDF v2. Use the namespace doc for legit information on MODSRDF v1: http://www.loc.gov/standards/mods/modsrdf/v1/
 
-For reference, if you're still reading this, **bold** means a v2 datapoint added by reading through https://github.com/blunalucero/MODS*RDF/issues/.
+For reference, if you're still reading this, **bold** means a v2 datapoint added by reading through https://github.com/blunalucero/MODS-RDF/issues/.
 
 # Namespaces:
-    * abstract=http://id.loc.gov/vocabulary/abstract#
-    * access=http://id.loc.gov/vocabulary/access#
-    * classSchemes=http://id.loc.gov/vocabulary/classSchemes/
-    * identifiers=http://id.loc.gov/vocabulary/identifiers/
-    * j.0=http://www.loc.gov/mods/rdf/
-    * madsrdf=http://www.loc.gov/mads/rdf/v1#
-    * modsrdf=http://www.loc.gov/mods/rdf/v1#
-    * note=http://id.loc.gov/vocabulary/note#
-    * owl=http://www.w3.org/2002/07/owl#
-    * rdf=http://www.w3.org/1999/02/22*rdf*syntax*ns#
-    * rdfs=http://www.w3.org/2000/01/rdf*schema#
-    * relators=http://id.loc.gov/vocabulary/relators/
-    * resourceTypes=http://id.loc.gov/vocabulary/resourceTypes/
-    * ri=http://id.loc.gov/ontologies/RecordInfo#
-    * targetAudiences=http://id.loc.gov/vocabulary/targetAudiences/
-    * xsd=http://www.w3.org/2001/XMLSchema#
+    - abstract=http://id.loc.gov/vocabulary/abstract#
+    - access=http://id.loc.gov/vocabulary/access#
+    - classSchemes=http://id.loc.gov/vocabulary/classSchemes/
+    - identifiers=http://id.loc.gov/vocabulary/identifiers/
+    - j.0=http://www.loc.gov/mods/rdf/
+    - madsrdf=http://www.loc.gov/mads/rdf/v1#
+    - modsrdf=http://www.loc.gov/mods/rdf/v1#
+    - note=http://id.loc.gov/vocabulary/note#
+    - owl=http://www.w3.org/2002/07/owl#
+    - rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns#
+    - rdfs=http://www.w3.org/2000/01/rdf-schema#
+    - relators=http://id.loc.gov/vocabulary/relators/
+    - resourceTypes=http://id.loc.gov/vocabulary/resourceTypes/
+    - ri=http://id.loc.gov/ontologies/RecordInfo#
+    - targetAudiences=http://id.loc.gov/vocabulary/targetAudiences/
+    - xsd=http://www.w3.org/2001/XMLSchema#
 
 # Imported Ontologies:
-    * http://www.w3.org/2004/02/skos/core
-    * http://xmlns.com/foaf/0.1/
-    * http://marklogic3.loc.gov:8281/ontologies/ClassificationSchemes
-    * http://marklogic3.loc.gov:8281/ontologies/ResourceTypes
-    * http://www.loc.gov/standards/mads/rdf/v1.rdf
-    * http://purl.org/vocab/changeset/schema
-    * http://vocab.org/changeset/
-    * http://www.w3.org/2008/05/skos*xl
-    * http://purl.org/dc/dcmitype/
-    * http://marklogic3.loc.gov:8281/ontologies/Roles
-    * http://purl.org/dc/elements/1.1/
-    * http://marklogic3.loc.gov:8281/ontologies/TargetAudiences
-    * http://www.loc.gov/mads/rdf/v1
-    * http://marklogic3.loc.gov:8281/ontologies/Identifiers
-    * http://purl.org/vocab/vann/
+    - http://www.w3.org/2004/02/skos/core
+    - http://xmlns.com/foaf/0.1/
+    - http://marklogic3.loc.gov:8281/ontologies/ClassificationSchemes
+    - http://marklogic3.loc.gov:8281/ontologies/ResourceTypes
+    - http://www.loc.gov/standards/mads/rdf/v1.rdf
+    - http://purl.org/vocab/changeset/schema
+    - http://vocab.org/changeset/
+    - http://www.w3.org/2008/05/skos-xl
+    - http://purl.org/dc/dcmitype/
+    - http://marklogic3.loc.gov:8281/ontologies/Roles
+    - http://purl.org/dc/elements/1.1/
+    - http://marklogic3.loc.gov:8281/ontologies/TargetAudiences
+    - http://www.loc.gov/mads/rdf/v1
+    - http://marklogic3.loc.gov:8281/ontologies/Identifiers
+    - http://purl.org/vocab/vann/
 
 # Classes:
-AdminMetadata
-	* label: Administrative Metadata
-	* comment: Administrative metadata for the description
-	* URI: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
-    
-Cartographics
-	* label: MODS - Cartographic Information
-	* comment: Aggregates cartographic properties
-	* URI: http://www.loc.gov/mods/rdf/v1#Cartographics
-ClassificationGroup
-    * label: MODS - Classification Group
-    * comment: For a classification whose scheme is not part of the controlled vocabulary. Bundles together a classification number and scheme.
-    * subClassOf: owl:Thing
-    * URI: http://www.loc.gov/mods/rdf/v1#ClassificationGroup
-IdentifierGroup
-    * label: MODS - Identifier - Typed
-    * comment: Used when the identifier type is not from the controlled list. Bundles together an identifier and its type.
-    * subClassOf: owl:Thing
-    * URI: http://www.loc.gov/mods/rdf/v1#IdentifierGroup
-Location
-    * label: MODS - Location
-    * comment: Aggregator for location properties
-    * URI: http://www.loc.gov/mods/rdf/v1#Location
-LocationCopy
-    * label: MODS - Location - Copy
-    * comment: An aggregator for copy properties
-    * URI: http://www.loc.gov/mods/rdf/v1#LocationCopy
-ModsResource
-    * label: MODS - A MODS Resource
-    * comment: The resource which is the subject of this description.
-    * URI: http://www.loc.gov/mods/rdf/v1#ModsResource
-    * Equivalent: http://id.loc.gov/vocabulary/resourceTypes/Res
-**NoteGroup**
-    * Removed as note properties mean no aggregation needed. See https://github.com/blunalucero/MODS*RDF/issues/3
-    * Just use specific property
-Part
-	* label: MODS - Part
-	* comment: An aggregator for part properties.
-	* URI: http://www.loc.gov/mods/rdf/v1#Part
-RoleRelationship
-	* label: MODS - Role Relationship
-	* comment: Aggregates a name with its role.
-	* URI: http://www.loc.gov/mods/rdf/v1#RoleRelationship
+    - *AdminMetadata*
+		- label: Administrative Metadata
+		- comment: Administrative metadata for the description
+		- URI: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
+	- *Cartographics*
+		- label: MODS - Cartographic Information
+		- comment: Aggregates cartographic properties
+		- URI: http://www.loc.gov/mods/rdf/v1#Cartographics
+    - *ClassificationGroup*
+        - label: MODS - Classification Group
+        - comment: For a classification whose scheme is not part of the controlled vocabulary. Bundles together a classification number and scheme.
+        - subClassOf: owl:Thing
+        - URI: http://www.loc.gov/mods/rdf/v1#ClassificationGroup
+    - *IdentifierGroup*
+        - label: MODS - Identifier - Typed
+        - comment: Used when the identifier type is not from the controlled list. Bundles together an identifier and its type.
+        - subClassOf: owl:Thing
+        - URI: http://www.loc.gov/mods/rdf/v1#IdentifierGroup
+    - *Location*
+        - label: MODS - Location
+        - comment: Aggregator for location properties
+        - URI: http://www.loc.gov/mods/rdf/v1#Location
+    - *LocationCopy*
+        - label: MODS - Location - Copy
+        - comment: An aggregator for copy properties
+        - URI: http://www.loc.gov/mods/rdf/v1#LocationCopy
+    - *ModsResource*
+        - label: MODS - A MODS Resource
+        - comment: The resource which is the subject of this description.
+        - URI: http://www.loc.gov/mods/rdf/v1#ModsResource
+        - Equivalent: http://id.loc.gov/vocabulary/resourceTypes/Res
+    - **NoteGroup**
+        - Removed as note properties mean no aggregation needed. See https://github.com/blunalucero/MODS-RDF/issues/3
+        - Just use specific property
+    - *Part*
+    	- label: MODS - Part
+    	- comment: An aggregator for part properties.
+    	- URI: http://www.loc.gov/mods/rdf/v1#Part
+    - *RoleRelationship*
+    	- label: MODS - Role Relationship
+    	- comment: Aggregates a name with its role.
+    	- URI: http://www.loc.gov/mods/rdf/v1#RoleRelationship
 
 # Object Properties:
-adminMetadata
-    * domain: ModsResource
-    * label: Administrative Metadata
-    * comment: Administrative metadata for the MODS description, corresponds to recordInfo (MODS XML) which is, minimimally, a Class defined outside of the MADS/RDF namespace. The RecordInfo Class from the RecordInfo ontology is recommended.
-    * range: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
-    * URI: http://www.loc.gov/mods/rdf/v1#adminMetadata
-cartographics
-    * range: #Cartographics
-    * label: Cartographics
-    * comment: A geographic entity expressed in cartographic terms.
-    * domain: ModsResource
-    * URI: http://www.loc.gov/mods/rdf/v1#cartographics
-classificationGroup
-    * label: Classification Group
-    * comment: rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used when classification scheme is not in controlled vocabulary. Bundles together the classification number with its scheme.
-    * domain: ModsResource
-    * range: ClassificationGroup
-    * URI: http://www.loc.gov/mods/rdf/v1#classificationGroup
-genre
-    * range: http://www.loc.gov/mads/rdf/v1#GenreForm
-    * label: Genre
-    * comment: The genre (or one of several genres) of the resource. Represented in the MADS namespace. 
-    * domain: ModsResource
-    * URI: http://www.loc.gov/mods/rdf/v1#genre
-identifierGroup
-    * range: IdentifierGroup
-    * comment: Used when identifier type is not in controlled vocabulary. Bundles together the identifier with its type.
-    * domain: ModsResource
-    * label: Identifier Group
-    * URI: http://www.loc.gov/mods/rdf/v1#identifierGroup
-locationCopy
-    * label: Location * Copy
-    * comment: Information about a specific tangible instance of a bibliographic resource or set which comprises one or more pieces via indication of sublocation and/or locator.
-    * domain: Location
-    * range: LocationCopy
-    * URI: http://www.loc.gov/mods/rdf/v1#locationCopy
-locationOfResource
-    * range: Location
-    * domain: ModsResource
-    * comment: The location (or one of several locations) at which the resource resides.
-    * label: Location
-    * URI: http://www.loc.gov/mods/rdf/v1#locationOfResource
-name
-    * range: http://www.loc.gov/mads/rdf/v1#Name
-    * domain: ModsResource
-    * comment: A name  * personal, corporate, conference, or family * associated with the resource. Represented in the MADS namespace. 
-    * label: Name
-    * URI: http://www.loc.gov/mods/rdf/v1#name
-namePrincipal
-    * range: http://www.loc.gov/mads/rdf/v1#Name
-    * domain: ModsResource
-    * label: Name * Principal
-    * subPropertyOf: name
-    * comment: A name that has been distinguished as the principal name associated with the resource. There should be no more than one name principal name. (The rule for determining the principal name is as follows: If the role associated with the name is 'creator' AND if it is the only name whose role is 'creator' then it is the principal name. Thus if there are more than one name, or no name, whose role is 'creator', then there is no principal name.) If there is a principal name, and if there is a uniform title, then that name and title are to be combined into a nameTitle. 
-    * URI: http://www.loc.gov/mods/rdf/v1#namePrincipal
-noteGroup
-    * label: Note  Group
-    * comment: Used for a note with a type (other than "statement of responsibility")
-    * domain: ModsResource
-    * range: NoteGroup
-    * URI: http://www.loc.gov/mods/rdf/v1#noteGroup
-part
-    * domain: ModsResource
-    * range: Part
-    * comment: Information about a physical part of the resource, including the part number, its caption and title, and dimensions. 
-    * label: Part
-    * URI: http://www.loc.gov/mods/rdf/v1#part
-placeOfOrigin
-    * domain ModsResource
-    * label: Place
-    * range: http://www.loc.gov/mads/rdf/v1#Geographic
-    * comment: Place of publication/origin. Used in connection with the origin of a resource, i.e., creation, publication, issuance, etc.  Represented as a MADS Geographic.
-    * URI: http://www.loc.gov/mods/rdf/v1#placeOfOrigin
-publisher
-    * range: http://www.loc.gov/mads/rdf/v1#Name
-    * label: Publisher
-    * domain: ModsResource
-    * comment: The name of the entity that published, printed, distributed, released, issued, or produced the resource.
-    * URI: http://www.loc.gov/mods/rdf/v1#publisher
-relatedConstituent
-    * range: ModsResource
-    * subPropertyOf: relatedItem
-    * label: Related item * Constituent
-    * comment: Relates the described MODS resource to another MODS resource which is a constituent of the described resource. 
-    * domain: ModsResource
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedConstituent
-relatedFormat
-    * range: ModsResource
-    * subPropertyOf: relatedItem
-    * label: Related item * Other Format
-    * comment: Relates the described MODS resource to a similar MODS resource of a different format.
-    * domain: ModsResource
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedFormat
-relatedHost
-    * range: ModsResource
-    * subPropertyOf: relatedItem
-    * domain: ModsResource
-    * comment: Relates the described MODS resource to another MODS resource which is a host of the described resource.
-    * label: Related item * Host
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedHost
-relatedInstantiation
-    * label: Related item * Instantiation
-    * subPropertyOf: relatedItem
-    * domain: ModsResource
-    * comment: Relates the described resource to a another MODS resource with different origination information.
-    * range: ModsResource
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedInstatiation
-relatedItem
-    * range: ModsResource
-    * domain: ModsResource
-    * comment: Relates the described MODS resource to another, related MODS resource.
-    * label: Related Item
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedItem
-relatedOriginal
-    * range: #ModsResource
-    * subPropertyOf: relatedItem
-    * domain: ModsResource
-    * comment: Relates the described MODS resource to another MODS resource which is an original of the described resource.
-    * label: Related item * Original
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedOriginal
-relatedPreceding
-    * range: ModsResource
-    * subPropertyOf: relatedItem
-    * domain: ModsResource
-    * comment: Relates the described MODS resource to a MODS resource which preceded the described resource.
-    * label: Related item * Preceding
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedPreceding
-relatedReference
-    * range: ModsResource
-    * domain: ModsResource
-    * label: Related item * Reference
-    * subPropertyOf: relatedItem
-    * comment: Relates the described MODS resource to another MODS resource which the described resource references.
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedReference
-relatedReferencedBy
-    * range: ModsResource
-    * label: Related item * Referenced By
-    * comment: Relates the described MODS resource to another MODS resource which references the described resource.
-    * domain: ModsResource
-    * subPropertyOf: #relatedItem
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedReferenceBy
- relatedReview
-    * range: ModsResource
-    * subPropertyOf: relatedItem
-    * domain: ModsResource
-    * comment: Relates the described MODS resource to another MODS resource which is review of the described resource.
-    * label: Related item * Review
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedReview
-relatedSeries
-    * range: ModsResource
-    * subPropertyOf: relatedItem
-    * comment: Relates the described resource to a another MODS resource which is a series of which the described resource is a part.
-    * label: Related item * Series
-    * domain: ModsResource
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedSeries
-relatedSucceeding
-    * range: ModsResource
-    * subPropertyOf: relatedItem
-    * domain: ModsResource
-    * label: Related item * Suceeding
-    * comment: Relates the described resource to a another MODS resource which suceeded it.
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedSucceeding
-relatedVersion
-    * range: ModsResource
-    * subPropertyOf: relatedItem
-    * domain: ModsResource
-    * comment: Relates the described MODS resource to another MODS resource which is a different version of the described resource.
-    * label: Related Item * Other Version
-    * URI: http://www.loc.gov/mods/rdf/v1#relatedVersion
-role
-    * equivalentProperty: http://id.loc.gov/vocabulary/relators/role
-    * domain: ModsResource
-    * comment: role is an abstract property, for which all terms in the relator vocabulary of roles become subproperties.  Thus for example 'relator:artist' refers to the role 'artist' within that vocabulary. (The prefix 'relator:' is used to denote the namespace for the "relator" vocabulary. The property 'relator:artist' relates the resource to an artist associated with the resource, represented as a mads name.
-    * label: Role (unbound)
-    * URI: http://www.loc.gov/mods/rdf/v1#role
-roleRelationship
-    * domain: ModsResource
-    * range: http://www.loc.gov/mads/rdf/v1#RoleRelationship
-    * comment: Binds a name to the role that the named entity played for the resource.
-    * label: Role Relationship
-    * URI: http://www.loc.gov/mods/rdf/v1#roleRelationship
-roleRelationshipName
-    * range: http://www.loc.gov/mads/rdf/v1#Name
-    * label: Role Relationship * Name
-    * comment: The name included in a roleRelationship.  The roleRelationship binds an name and a role, where the name is a name associated with the resource and is specified elsewhere via the hasName property.  This mechanism is used when the role is not part of a known vocabulary.  Otherwise, the relationship is expressed by using the role vocabulary term as the property; for example, see relator:creator.
-    * domain: RoleRelationship
-    * URI: http://www.loc.gov/mods/rdf/v1#roleRelationshipName
-subject
-    * domain: ModsResource
-    * label: Subject
-    * comment: An abstract property defined for which the various subject catergories (e.g. subjectGenre, subjectTitle) are subproperties.
-    * URI: http://www.loc.gov/mods/rdf/v1#subject
-subjectComplex
-    * range: http://www.loc.gov/mads/rdf/v1#ComplexSubject
-    * domain: ModsResource
-    * comment: A subject of the resource composed of several component subjects.
-    * subPropertyOf subject
-    * label: Subject * Complex
-    * URI: http://www.loc.gov/mods/rdf/v1#subjectComplex
-subjectGenre
-    * range: rdf:resource="http://www.loc.gov/mads/rdf/v1#GenreForm
-    * domain: ModsResource
-    * label: Subject * Genre Subject
-    * subPropertyOf: subject
-    * comment: A subject of the resource which is a genre, expressed in terms of a MADS GenreForm.
-    * URI: http://www.loc.gov/mods/rdf/v1#subjectGenre
-subjectGeographic
-    * range: rdf:resource="http://www.loc.gov/mads/rdf/v1#Geographic
-    * domain: ModsResource
-    * comment: A subject of the resource which is a geographic entity, expressed in terms of a MADS Geographic.
-    * subPropertyOf: #subject
-    * label: Subject * Geographic
-    * URI: http://www.loc.gov/mods/rdf/v1#subjectGeographic
-subjectGeographicCode
-    * range: rdf:resource="http://www.loc.gov/mads/rdf/v1#Geographic
-    * label: Subject * Geographic Code 
-    * comment: A subject of the resource which is a geographic entity, expressed as a geographic code and in terms of a MADS Geographic.
-    * domain: ModsResource
-    * subPropertyOf: subjectGeographic
-    * URI: http://www.loc.gov/mods/rdf/v1#subjectGeographicCode
-subjectHierarchicalGeographic
-    * range: http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic
-    * domain: ModsResource
-    * comment: A subject of the resource which is a hierarchy of geographic entities expressed in terms of a MADS Geographics.
-    * subPropertyOf: subject
-    * label: Subject *  Hierarchical Geographic
-    * URI: http://www.loc.gov/mods/rdf/v1#subjectHierarchicalGeographic
-subjectName
-    * range: http://www.loc.gov/mads/rdf/v1#Name
-    * domain: ModsResource
-    * comment: A subject of the resource which is a name, expressed in terms of a MADS Name.
-    * subPropertyOf: subject
-    * label: Subject * Name Subject
-    * URI: http://www.loc.gov/mods/rdf/v1#subjectName
-subjectOccupation
-    * range: rdf:resource="http://www.loc.gov/mads/rdf/v1#Occupation
-    * domain: ModsResource
-    * comment: A subject of the resource which is an occupation, expressed in terms of a MADS Occupation.
-    * subPropertyOf: #subject
-    * label: Subject * Occupation
-    * URI: http://www.loc.gov/mods/rdf/v1#subjectOccupation
-subjectTemporal
-    * range: http://www.loc.gov/mads/rdf/v1#Temporal
-    * domain: ModsResource
-    * comment: A subject of the resource which is a temporal expression, expressed in terms of a MADS Temporal.
-    * subPropertyOf: subject
-    * label: Subject * Temporal
-    * URI: http://www.loc.gov/mods/rdf/v1#subjectTemporal
-subjectTitle
-    * range: http://www.loc.gov/mads/rdf/v1#Title
-    * domain: ModsResource
-    * comment: A subject of the resource which is a title, expressed in terms of a MADS Title.
-    * subPropertyOf subject
-    * label: Subject * Title
-    * URI: http://www.loc.gov/mods/rdf/v1#subjectTitle
-subjectTopic
-    * range: http://www.loc.gov/mads/rdf/v1#Topic
-    * subPropertyOf: subject
-    * comment: A subject of the resource which is a topic, expressed in terms of a MADS Topic.
-    * label: Subject * Topic
-    * domain: ModsResource
-    * URI: http://www.loc.gov/mods/rdf/v1#subjectTopic
-title
-    * range: rdf:resource="http://www.loc.gov/mads/rdf/v1#Title
-    * domain: ModsResource
-    * comment: A title for the resource. Represented as a MADS Title.
-    * label: Title
-    * URI: http://www.loc.gov/mods/rdf/v1#title
-titlePrincipal
-    * range: http://www.loc.gov/mads/rdf/v1#Title
-    * subPropertyOf: title
-    * domain ModsResource
-    * comment: A title which has been distinguished as the principal  title. (This corresponds to a MODS XML titleInfo with  no type attribute.) There should be no more than one principal title. Represented as a MADS Title.
-    * label: Title * Principal
-    * URI: http://www.loc.gov/mods/rdf/v1#titlePrincipal
-titleUniform
-    * domain: ModsResource
-    * range: http://www.loc.gov/mads/rdf/v1#Title
-    * subPropertyOf: title
-    * comment: A title which has been distinguished as a uniform title. (This corresponds to a MODS XML titleInfo with 'type=uniform' attribute.) There should be no more than one uniform title.  Represented as a MADS Title, or, if there is a primary name, it is represented as a MADS NameTitle.
-    * label: Title * Uniform
-    * URI: http://www.loc.gov/mods/rdf/v1#titleUniform
+    - *adminMetadata*
+        - domain: ModsResource
+        - label: Administrative Metadata
+        - comment: Administrative metadata for the MODS description, corresponds to recordInfo (MODS XML) which is, minimimally, a Class defined outside of the MADS/RDF namespace. The RecordInfo Class from the RecordInfo ontology is recommended.
+        - range: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
+        - URI: http://www.loc.gov/mods/rdf/v1#adminMetadata
+    - *cartographics*
+        - range: #Cartographics
+        - label: Cartographics
+        - comment: A geographic entity expressed in cartographic terms.
+        - domain: ModsResource
+        - URI: http://www.loc.gov/mods/rdf/v1#cartographics
+    - *classificationGroup*
+        - label: Classification Group
+        - comment: rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used when classification scheme is not in controlled vocabulary. Bundles together the classification number with its scheme.
+        - domain: ModsResource
+        - range: ClassificationGroup
+        - URI: http://www.loc.gov/mods/rdf/v1#classificationGroup
+    - *genre*
+        - range: http://www.loc.gov/mads/rdf/v1#GenreForm
+        - label: Genre
+        - comment: The genre (or one of several genres) of the resource. Represented in the MADS namespace. 
+        - domain: ModsResource
+        - URI: http://www.loc.gov/mods/rdf/v1#genre
+    - *identifierGroup*
+        - range: IdentifierGroup
+        - comment: Used when identifier type is not in controlled vocabulary. Bundles together the identifier with its type.
+        - domain: ModsResource
+        - label: Identifier Group
+        - URI: http://www.loc.gov/mods/rdf/v1#identifierGroup
+    - *locationCopy*
+        - label: Location - Copy
+        - comment: Information about a specific tangible instance of a bibliographic resource or set which comprises one or more pieces via indication of sublocation and/or locator.
+        - domain: Location
+        - range: LocationCopy
+        - URI: http://www.loc.gov/mods/rdf/v1#locationCopy
+    - *locationOfResource*
+        - range: Location
+        - domain: ModsResource
+        - comment: The location (or one of several locations) at which the resource resides.
+        - label: Location
+        - URI: http://www.loc.gov/mods/rdf/v1#locationOfResource
+    - *name*
+        - range: http://www.loc.gov/mads/rdf/v1#Name
+        - domain: ModsResource
+        - comment: A name  - personal, corporate, conference, or family - associated with the resource. Represented in the MADS namespace. 
+        - label: Name
+        - URI: http://www.loc.gov/mods/rdf/v1#name
+    - *namePrincipal*
+        - range: http://www.loc.gov/mads/rdf/v1#Name
+        - domain: ModsResource
+        - label: Name -  Principle
+        - subPropertyOf: name
+        - comment: A name that has been distinguished as the principal name associated with the resource. There should be no more than one name principal name. (The rule for determining the principal name is as follows: If the role associated with the name is 'creator' AND if it is the only name whose role is 'creator' then it is the principal name. Thus if there are more than one name, or no name, whose role is 'creator', then there is no principal name.) If there is a principal name, and if there is a uniform title, then that name and title are to be combined into a nameTitle. 
+        - URI: http://www.loc.gov/mods/rdf/v1#namePrincipal
+    - *noteGroup*
+        - label: Note  Group
+        - comment: Used for a note with a type (other than "statement of responsibility")
+        - domain: ModsResource
+        - range: NoteGroup
+        - URI: http://www.loc.gov/mods/rdf/v1#noteGroup
+    - *part*
+        - domain: ModsResource
+        - range: Part
+        - comment: Information about a physical part of the resource, including the part number, its caption and title, and dimensions. 
+        - label: Part
+        - URI: http://www.loc.gov/mods/rdf/v1#part
+    - *placeOfOrigin*
+        - domain ModsResource
+        - label: Place
+        - range: http://www.loc.gov/mads/rdf/v1#Geographic
+        - comment: Place of publication/origin. Used in connection with the origin of a resource, i.e., creation, publication, issuance, etc.  Represented as a MADS Geographic.
+        - URI: http://www.loc.gov/mods/rdf/v1#placeOfOrigin
+    - *publisher*
+        - range: http://www.loc.gov/mads/rdf/v1#Name
+        - label: Publisher
+        - domain: ModsResource
+        - comment: The name of the entity that published, printed, distributed, released, issued, or produced the resource.
+        - URI: http://www.loc.gov/mods/rdf/v1#publisher
+    - *relatedConstituent*
+        - range: ModsResource
+        - subPropertyOf: relatedItem
+        - label: Related item - Constituent
+        - comment: Relates the described MODS resource to another MODS resource which is a constituent of the described resource. 
+        - domain: ModsResource
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedConstituent
+    - *relatedFormat*
+        - range: ModsResource
+        - subPropertyOf: relatedItem
+        - label: Related item - Other Format
+        - comment: Relates the described MODS resource to a similar MODS resource of a different format.
+        - domain: ModsResource
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedFormat
+    - *relatedHost*
+        - range: ModsResource
+        - subPropertyOf: relatedItem
+        - domain: ModsResource
+        - comment: Relates the described MODS resource to another MODS resource which is a host of the described resource.
+        - label: Related item - Host
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedHost
+    - *relatedInstantiation*
+        - label: Related item - Instantiation
+        - subPropertyOf: relatedItem
+        - domain: ModsResource
+        - comment: Relates the described resource to a another MODS resource with different origination information.
+        - range: ModsResource
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedInstatiation
+    - *relatedItem*
+        - range: ModsResource
+        - domain: ModsResource
+        - comment: Relates the described MODS resource to another, related MODS resource.
+        - label: Related Item
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedItem
+    - *relatedOriginal*
+        - range: #ModsResource
+        - subPropertyOf: relatedItem
+        - domain: ModsResource
+        - comment: Relates the described MODS resource to another MODS resource which is an original of the described resource.
+        - label: Related item - Original
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedOriginal
+    - *relatedPreceding*
+        - range: ModsResource
+        - subPropertyOf: relatedItem
+        - domain: ModsResource
+        - comment: Relates the described MODS resource to a MODS resource which preceded the described resource.
+        - label: Related item - Preceding
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedPreceding
+      - *relatedReference*
+        - range: ModsResource
+        - domain: ModsResource
+        - label: Related item - Reference
+        - subPropertyOf: relatedItem
+        - comment: Relates the described MODS resource to another MODS resource which the described resource references.
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedReference
+      - *relatedReferencedBy*
+        - range: ModsResource
+        - label: Related item - Referenced By
+        - comment: Relates the described MODS resource to another MODS resource which references the described resource.
+        - domain: ModsResource
+        - subPropertyOf: #relatedItem
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedReferenceBy
+      - *relatedReview*
+        - range: ModsResource
+        - subPropertyOf: relatedItem
+        - domain: ModsResource
+        - comment: Relates the described MODS resource to another MODS resource which is review of the described resource.
+        - label: Related item - Review
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedReview
+      - *relatedSeries*
+        - range: ModsResource
+        - subPropertyOf: relatedItem
+        - comment: Relates the described resource to a another MODS resource which is a series of which the described resource is a part.
+        - label: Related item - Series
+        - domain: ModsResource
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedSeries
+      - *relatedSucceeding*
+        - range: ModsResource
+        - subPropertyOf: relatedItem
+        - domain: ModsResource
+        - label: Related item - Suceeding
+        - comment: Relates the described resource to a another MODS resource which suceeded it.
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedSucceeding
+      - *relatedVersion*
+        - range: ModsResource
+        - subPropertyOf: relatedItem
+        - domain: ModsResource
+        - comment: Relates the described MODS resource to another MODS resource which is a different version of the described resource.
+        - label: Related Item - Other Version
+        - URI: http://www.loc.gov/mods/rdf/v1#relatedVersion
+      - *role*
+        - equivalentProperty: http://id.loc.gov/vocabulary/relators/role
+        - domain: ModsResource
+        - comment: role is an abstract property, for which all terms in the relator vocabulary of roles become subproperties.  Thus for example 'relator:artist' refers to the role 'artist' within that vocabulary. (The prefix 'relator:' is used to denote the namespace for the "relator" vocabulary. The property 'relator:artist' relates the resource to an artist associated with the resource, represented as a mads name.
+        - label: Role (unbound)
+        - URI: http://www.loc.gov/mods/rdf/v1#role
+      - *roleRelationship*
+        - domain: ModsResource
+        - range: http://www.loc.gov/mads/rdf/v1#RoleRelationship
+        - comment: Binds a name to the role that the named entity played for the resource.
+        - label: Role Relationship
+        - URI: http://www.loc.gov/mods/rdf/v1#roleRelationship
+      - *roleRelationshipName*
+        - range: http://www.loc.gov/mads/rdf/v1#Name
+        - label: Role Relationship - Name
+        - comment: The name included in a roleRelationship.  The roleRelationship binds an name and a role, where the name is a name associated with the resource and is specified elsewhere via the hasName property.  This mechanism is used when the role is not part of a known vocabulary.  Otherwise, the relationship is expressed by using the role vocabulary term as the property; for example, see relator:creator.
+        - domain: RoleRelationship
+        - URI: http://www.loc.gov/mods/rdf/v1#roleRelationshipName
+      - *subject*
+        - domain: ModsResource
+        - label: Subject
+        - comment: An abstract property defined for which the various subject catergories (e.g. subjectGenre, subjectTitle) are subproperties.
+        - URI: http://www.loc.gov/mods/rdf/v1#subject
+      - *subjectComplex*
+        - range: http://www.loc.gov/mads/rdf/v1#ComplexSubject
+        - domain: ModsResource
+        - comment: A subject of the resource composed of several component subjects.
+        - subPropertyOf subject
+        - label: Subject - Complex
+        - URI: http://www.loc.gov/mods/rdf/v1#subjectComplex
+      - *subjectGenre*
+        - range: rdf:resource="http://www.loc.gov/mads/rdf/v1#GenreForm
+        - domain: ModsResource
+        - label: Subject - Genre Subject
+        - subPropertyOf: subject
+        - comment: A subject of the resource which is a genre, expressed in terms of a MADS GenreForm.
+        - URI: http://www.loc.gov/mods/rdf/v1#subjectGenre
+      - *subjectGeographic*
+        - range: rdf:resource="http://www.loc.gov/mads/rdf/v1#Geographic
+        - domain: ModsResource
+        - comment: A subject of the resource which is a geographic entity, expressed in terms of a MADS Geographic.
+        - subPropertyOf: #subject
+        - label: Subject - Geographic
+        - URI: http://www.loc.gov/mods/rdf/v1#subjectGeographic
+      - *subjectGeographicCode*
+        - range: rdf:resource="http://www.loc.gov/mads/rdf/v1#Geographic
+        - label: Subject - Geographic Code 
+        - comment: A subject of the resource which is a geographic entity, expressed as a geographic code and in terms of a MADS Geographic.
+        - domain: ModsResource
+        - subPropertyOf: subjectGeographic
+        - URI: http://www.loc.gov/mods/rdf/v1#subjectGeographicCode
+      - *subjectHierarchicalGeographic*
+        - range: http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic
+        - domain: ModsResource
+        - comment: A subject of the resource which is a hierarchy of geographic entities expressed in terms of a MADS Geographics.
+        - subPropertyOf: subject
+        - label: Subject -  Hierarchical Geographic
+        - URI: http://www.loc.gov/mods/rdf/v1#subjectHierarchicalGeographic
+      - *subjectName*
+        - range: http://www.loc.gov/mads/rdf/v1#Name
+        - domain: ModsResource
+        - comment: A subject of the resource which is a name, expressed in terms of a MADS Name.
+        - subPropertyOf: subject
+        - label: Subject - Name Subject
+        - URI: http://www.loc.gov/mods/rdf/v1#subjectName
+      - *subjectOccupation*
+        - range: rdf:resource="http://www.loc.gov/mads/rdf/v1#Occupation
+        - domain: ModsResource
+        - comment: A subject of the resource which is an occupation, expressed in terms of a MADS Occupation.
+        - subPropertyOf: #subject
+        - label: Subject - Occupation
+        - URI: http://www.loc.gov/mods/rdf/v1#subjectOccupation
+      - *subjectTemporal*
+        - range: http://www.loc.gov/mads/rdf/v1#Temporal
+        - domain: ModsResource
+        - comment: A subject of the resource which is a temporal expression, expressed in terms of a MADS Temporal.
+        - subPropertyOf: subject
+        - label: Subject - Temporal
+        - URI: http://www.loc.gov/mods/rdf/v1#subjectTemporal
+      - *subjectTitle*
+        - range: http://www.loc.gov/mads/rdf/v1#Title
+        - domain: ModsResource
+        - comment: A subject of the resource which is a title, expressed in terms of a MADS Title.
+        - subPropertyOf subject
+        - label: Subject - Title
+        - URI: http://www.loc.gov/mods/rdf/v1#subjectTitle
+      - *subjectTopic*
+        - range: http://www.loc.gov/mads/rdf/v1#Topic
+        - subPropertyOf: subject
+        - comment: A subject of the resource which is a topic, expressed in terms of a MADS Topic.
+        - label: Subject - Topic
+        - domain: ModsResource
+        - URI: http://www.loc.gov/mods/rdf/v1#subjectTopic
+      - *title*
+        - range: rdf:resource="http://www.loc.gov/mads/rdf/v1#Title
+        - domain: ModsResource
+        - comment: A title for the resource. Represented as a MADS Title.
+        - label: Title
+        - URI: http://www.loc.gov/mods/rdf/v1#title
+      - *titlePrincipal*
+        - range: http://www.loc.gov/mads/rdf/v1#Title
+        - subPropertyOf: title
+        - domain ModsResource
+        - comment: A title which has been distinguished as the principal  title. (This corresponds to a MODS XML titleInfo with  no type attribute.) There should be no more than one principal title. Represented as a MADS Title.
+        - label: Title - Principal
+        - URI: http://www.loc.gov/mods/rdf/v1#titlePrincipal
+      - *titleUniform*
+        - domain: ModsResource
+        - range: http://www.loc.gov/mads/rdf/v1#Title
+        - subPropertyOf: title
+        - comment: A title which has been distinguished as a uniform title. (This corresponds to a MODS XML titleInfo with 'type=uniform' attribute.) There should be no more than one uniform title.  Represented as a MADS Title, or, if there is a primary name, it is represented as a MADS NameTitle.
+        - label: Title - Uniform
+        - URI: http://www.loc.gov/mods/rdf/v1#titleUniform
 
 # Datatype Properties:
-partList
-    * domain: #Part
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * comment: A property of a part - a textual listing of the units within the part.
-    * label: Part - List
-identifierGroupValue
-    * label: Identifier Group - Value
-    * comment: The identifier value.
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #IdentifierGroup
-partOrder
-    * range: http://www.w3.org/2001/XMLSchema#integer
-    * domain: #Part
-    * comment: An integer that designates the sequence of parts
-    * label: Part - Order
-locationCopyNote
-    * comment: A note pertaining to a specific copy.
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Location - Copy -- Note
-    * domain: #LocationCopy
-locationCopyEnumerationAndChronologySupplement*
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Location - Copy  - Enumeration And Chronology -- Supplement
-    * comment: One of three levels  of enumerationAndChronology:'supplement'
-    * domain: #LocationCopy
-    * subPropertyOf: locationCopyEnumerationAndChronology
-*partEnd
-    * domain: #Part
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * comment: The value of the end of a part. For example, if unit of the part has value 'page', this is the number of the last page.
-    * label: Part - End
-*physicalExtent
-    * label: Physical Extent
-    * comment: a statement of the number and specific material of the units of the resource that express physical extent.
-    * domain: #ModsResource
-    * range: http://www.w3.org/2001/XMLSchema#string
-locationCopyForm
-    * label: Location - Copy -- Form
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * comment: The form of a particular copy may be indicated when the general description refers to multiple forms and there is different detailed holdings information associated with different forms.
-    * domain: #LocationCopy
-partDetailType
-    * domain: #Part
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * comment: The type of the resource part, e.g. volume, issue, page.
-    * label: Part - Detail Type
-locationCopyEnumerationAndChronology
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Location - Copy  - Enumeration And Chronology
-    * comment: A summary holdings statement for the copy. A string with information including volume or issue, date of publication or date of issue of a component of a multi*part resource, distinguishing it from other components of the same resource.
-    * domain: #LocationCopy
-recordOrigin
-    * label: Record Origin
-    * comment: Describes the origin or provenance of the description.
-    * domain: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
-    * range: http://www.w3.org/2001/XMLSchema#string
-accessCondition
-    * comment: Information about restrictions imposed on access to  the resource.
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Access Condition
-    * domain: #ModsResource
-cartographicsCoordinates
-    * label: Cartographics - Coordinates
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #Cartographics
-    * type: http://www.w3.org/1999/02/22*rdf*syntax*ns#Property
-locationShelfLocator
-    * domain: #Location
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Location - Shelf Locator 
-    * comment: Shelfmark or other shelving designation
-note
-    * domain: #ModsResource
-    * comment: Textual information about the resource. This property is used when no type is specified. (In contrast to hasTypedNote, whose object is an aggregator that includes both the type and note.)
-    * label: Note
-    * range: http://www.w3.org/2001/XMLSchema#string
-recordDescriptionStandard
-    * label: Record Description Standard
-    * domain: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
-    * comment: Part of administrative metadata. The standard  which designates the rules used for the content of the description. 
-    * range: http://www.w3.org/2001/XMLSchema#string
-cartographicsProjection
-    * label: Cartographics - Projection
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #Cartographics"
-    * type: http://www.w3.org/1999/02/22*rdf*syntax*ns#Property
-classificationGroupValue
-    * comment: The classification value
-    * domain: #ClassificationGroup
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Classification Group - Value
-reformattingQuality
-    * label: Reformatting Quality
-    * domain: #ModsResource
-    * comment: The reformatting quality; e.g. access, preservation, replacement.
-partStart
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #Part
-    * comment: The beginning unit of the part. 
-    * label: Part - Start
-locationPhysical
-    * domain: #Location
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Location - Physical Location
-    * comment: The institution or repository that holds the resource, or where it is available.
-digitalOrigin
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Digital Origin
-    * domain: #ModsResource
-    * comment: a designation of the source of a digital file important to its creation, use and management.
-partUnit
-    * domain: #Part
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Part - Unit
-    * comment: the unit -- e.g. page, chapter -- applying to the start, end, and total values.
-cartographicsScale
-    * label: Cartographics - Scale
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #Cartographics
-recordContentSource
-    * label: Record Content Source
-    * comment: The code or name of the organization that either created the original description or modified it.
-    * domain: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
-    * range: http://www.w3.org/2001/XMLSchema#string
-tableOfContents
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * comment: Description of the contents of the resource.
-    * label: Table of Contents
-    * domain: #ModsResource
-partNumber
-    * comment: A string that designates the part number.
-    * domain: #Part
-    * label: Part - Number
-    * range: http://www.w3.org/2001/XMLSchema#string
-statementOfResponsibility
-    * domain: #ModsResource
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Statement of Responsibility
-    * comment: A note, when the note type is "statement of responsibility"
-identifierGroupType
-    * comment: The identifier type. 
-    * label: Identifier Group - Type
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #IdentifierGroup
-locationCopySublocation
-    * label: Location - Copy -- Sublocation
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * comment: Department, division, or section of an institution holding a copy of the resource. 
-    * domain: #LocationCopy
-issuance
-    * comment: Describes the issuance of the resource. 
-    * label: Issuance
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #ModsResource
-noteGroupValue
-    * label: NoteGroup - Value
-    * comment: A property of noteGroup - used when a type is supplied for the note. The text of the note. 
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #NoteGroup
-abstract
-    * comment: A summary of the content of the resource. 
-    * label: Abstract
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #ModsResource
-noteGroupType
-    * label: NoteGroup - Type
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * comment: A property of NoteGroup * used when a type is supplied for the note.  The type. 
-    * domain: #NoteGroup
-recordIdentifier
-    * label: Record Identifier
-    * comment: The system control number assigned by the organization creating, using, or distributing the description. 
-    * domain: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
-    * range: http://www.w3.org/2001/XMLSchema#string
-locationCopyEnumerationAndChronologyIndex*
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Location - Copy  - Enumeration And Chronology -- Index
-    * comment: One of three levels of enumerationAndChronology:'index' 
-    * domain: #LocationCopy
-    * subPropertyOf: #locationCopyEnumerationAndChronology
-frequency
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Frequency
-    * comment: publication frequency 
-    * domain: #ModsResource
-edition
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Edition
-    * comment: Version of the resource. 
-    * domain: #ModsResource
-locationUrl
-    * domain: #Location
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Location - URL
-    * comment: Location of the resource (a URL)
-partTotal
-    * range: http://www.w3.org/2001/XMLSchema#positiveInteger
-    * domain: #Part
-    * comment: The total number of units within a part. 
-    * label: Part - Total
-roleRelationshipRole
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #RoleRelationship
-    * label: Role Relationship - Role
-    * comment: The role associated with a name, where the name and role are bound together in a roleRelationship.
-identifierValue
-    * domain: #IdentifierGroup
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Identifier - Value
-    * comment: Used in conjuction with identifierType, when the type is not from the controlled vocabulary.
-classificationGroupScheme
-    * domain: #ClassificationGroup
-    * comment: The classification scheme 
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Classification Group - Scheme
-partType
-    * domain: #Part
-    * comment: The segment type of a part. (When parts are included, the resource is ususally a document, so the part type would be the segment type of the document.) 
-    * label: Part - Type
-    * range: http://www.w3.org/2001/XMLSchema#string
-partName*
-    * label: Part - Name
-    * domain: #Part
-    * comment: A string that designates the part name. 
-    * range: http://www.w3.org/2001/XMLSchema#string
-partLevel
-    * domain: #Part
-    * range: http://www.w3.org/2001/XMLSchema#positiveInteger
-    * comment: A property of a part - the level of numbering in the host/parent item. 
-    * label: Part - Level
-locationCopyShelfLocator
-    * label: Location - Copy -- Shelf Locator
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * comment: Shelfmark or other shelving designation that indicates the location identifier for a copy. 
-    * domain: #LocationCopy
-targetAudience
-    * domain: #ModsResource
-    * comment: The target audience of the resource. Examples: adolescent, adult, general, juvenile, preschool,  specialized. 
-    * label: Target Audience
-    * range: http://www.w3.org/2001/XMLSchema#string
-identifier
-    * comment: identifier is a property for which all terms in the "identifier" vocabulary become subproperties.  Thus for example 'identifer:isbn' is a subproperty saying in effect "has this ISBN" where 'isbn' is a term within that vocabulary. (The prefix 'identifier:' is used to denote the namespace for the "identifier" vocabulary. 
-    * label: Identifier
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * domain: #ModsResource
-    * equivalentProperty: http://id.loc.gov/vocabulary/identifiers/id
-locationCopyEnumerationAndChronologyBasic
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * label: Location - Copy  - Enumeration And Chronology -- Basic
-    * comment: One of three levels of enumerationAndChronology: 'basic' 
-    * domain: #LocationCopy
-    * subPropertyOf: #locationCopyEnumerationAndChronology
-physicalForm
-    * label: Physical Form
-    * domain: #ModsResource
-    * comment: A particular physical presentation of the resource, including the physical form or medium of material for a resource. Example: oil paint 
-    * range: http://www.w3.org/2001/XMLSchema#string
-locationCopyElectronicLocator
-    * label: Location - Copy -- Electronic Locator
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * comment: URI of the copy of the resource. 
-    * domain: #LocationCopy
-mediaType
-    * range: http://www.w3.org/2001/XMLSchema#string
-    * comment: An Internet Media (MIME) type e.g. text/html.  
-    * label: Media Type
-    * domain: #ModsResource
+    - *partList*
+        - domain: #Part
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - comment: A property of a part - a textual listing of the units within the part.
+        - label: Part - List
+    - *identifierGroupValue*
+        - label: Identifier Group - Value
+        - comment: The identifier value.
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #IdentifierGroup
+    - *partOrder*
+        - range: http://www.w3.org/2001/XMLSchema#integer
+        - domain: #Part
+        - comment: An integer that designates the sequence of parts
+        - label: Part - Order
+    - *locationCopyNote*
+        - comment: A note pertaining to a specific copy.
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Location - Copy -- Note
+        - domain: #LocationCopy
+    - *locationCopyEnumerationAndChronologySupplement*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Location - Copy  - Enumeration And Chronology -- Supplement
+        - comment: One of three levels  of enumerationAndChronology:'supplement'
+        - domain: #LocationCopy
+        - subPropertyOf: locationCopyEnumerationAndChronology
+    - *partEnd*
+        - domain: #Part
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - comment: The value of the end of a part. For example, if unit of the part has value 'page', this is the number of the last page.
+        - label: Part - End
+    - *physicalExtent*
+        - label: Physical Extent
+        - comment: a statement of the number and specific material of the units of the resource that express physical extent.
+        - domain: #ModsResource
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *locationCopyForm*
+        - label: Location - Copy -- Form
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - comment: The form of a particular copy may be indicated when the general description refers to multiple forms and there is different detailed holdings information associated with different forms.
+        - domain: #LocationCopy
+    - *partDetailType*
+        - domain: #Part
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - comment: The type of the resource part, e.g. volume, issue, page.
+        - label: Part - Detail Type
+    - *locationCopyEnumerationAndChronology*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Location - Copy  - Enumeration And Chronology
+        - comment: A summary holdings statement for the copy. A string with information including volume or issue, date of publication or date of issue of a component of a multi-part resource, distinguishing it from other components of the same resource.
+        - domain: #LocationCopy
+    - *recordOrigin*
+        - label: Record Origin
+        - comment: Describes the origin or provenance of the description.
+        - domain: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *accessCondition*
+        - comment: Information about restrictions imposed on access to  the resource.
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Access Condition
+        - domain: #ModsResource
+    - *cartographicsCoordinates*
+        - label: Cartographics - Coordinates
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #Cartographics
+        - type: http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+    - *locationShelfLocator*
+        - domain: #Location
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Location - Shelf Locator 
+        - comment: Shelfmark or other shelving designation
+    - *note*
+        - domain: #ModsResource
+        - comment: Textual information about the resource. This property is used when no type is specified. (In contrast to hasTypedNote, whose object is an aggregator that includes both the type and note.)
+        - label: Note
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *recordDescriptionStandard*
+        - label: Record Description Standard
+        - domain: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
+        - comment: Part of administrative metadata. The standard  which designates the rules used for the content of the description. 
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *cartographicsProjection*
+        - label: Cartographics - Projection
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #Cartographics"
+        - type: http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+    - *classificationGroupValue*
+        - comment: The classification value
+        - domain: #ClassificationGroup
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Classification Group - Value
+    - *reformattingQuality*
+        - label: Reformatting Quality
+        - domain: #ModsResource
+        - comment: The reformatting quality; e.g. access, preservation, replacement.
+    - *partStart*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #Part
+        - comment: The beginning unit of the part. 
+        - label: Part - Start
+    - *locationPhysical*
+        - domain: #Location
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Location - Physical Location
+        - comment: The institution or repository that holds the resource, or where it is available.
+    - *digitalOrigin*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Digital Origin
+        - domain: #ModsResource
+        - comment: a designation of the source of a digital file important to its creation, use and management.
+    - *partUnit*
+        - domain: #Part
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Part - Unit
+        - comment: the unit -- e.g. page, chapter -- applying to the start, end, and total values.
+    - *cartographicsScale*
+        - label: Cartographics - Scale
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #Cartographics
+    - *recordContentSource*
+        - label: Record Content Source
+        - comment: The code or name of the organization that either created the original description or modified it.
+        - domain: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *tableOfContents*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - comment: Description of the contents of the resource.
+        - label: Table of Contents
+        - domain: #ModsResource
+    - *partNumber*
+        - comment: A string that designates the part number.
+        - domain: #Part
+        - label: Part - Number
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *statementOfResponsibility*
+        - domain: #ModsResource
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Statement of Responsibility
+        - comment: A note, when the note type is "statement of responsibility"
+    - *identifierGroupType*
+        - comment: The identifier type. 
+        - label: Identifier Group - Type
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #IdentifierGroup
+    - *locationCopySublocation*
+        - label: Location - Copy -- Sublocation
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - comment: Department, division, or section of an institution holding a copy of the resource. 
+        - domain: #LocationCopy
+    - *issuance*
+        - comment: Describes the issuance of the resource. 
+        - label: Issuance
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #ModsResource
+    - *noteGroupValue*
+        - label: NoteGroup - Value
+        - comment: A property of noteGroup - used when a type is supplied for the note. The text of the note. 
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #NoteGroup
+    - *abstract*
+        - comment: A summary of the content of the resource. 
+        - label: Abstract
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #ModsResource
+    - *noteGroupType*
+        - label: NoteGroup - Type
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - comment: A property of NoteGroup - used when a type is supplied for the note.  The type. 
+        - domain: #NoteGroup
+    - *recordIdentifier*
+        - label: Record Identifier
+        - comment: The system control number assigned by the organization creating, using, or distributing the description. 
+        - domain: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *locationCopyEnumerationAndChronologyIndex*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Location - Copy  - Enumeration And Chronology -- Index
+        - comment: One of three levels of enumerationAndChronology:'index' 
+        - domain: #LocationCopy
+        - subPropertyOf: #locationCopyEnumerationAndChronology
+    - *frequency*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Frequency
+        - comment: publication frequency 
+        - domain: #ModsResource
+    - *edition*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Edition
+        - comment: Version of the resource. 
+        - domain: #ModsResource
+    - *locationUrl*
+        - domain: #Location
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Location - URL
+        - comment: Location of the resource (a URL)
+    - *partTotal*
+        - range: http://www.w3.org/2001/XMLSchema#positiveInteger
+        - domain: #Part
+        - comment: The total number of units within a part. 
+        - label: Part - Total
+    - *roleRelationshipRole*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #RoleRelationship
+        - label: Role Relationship -  Role
+        - comment: The role associated with a name, where the name and role are bound together in a roleRelationship.
+    - *identifierValue*
+        - domain: #IdentifierGroup
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Identifier - Value
+        - comment: Used in conjuction with identifierType, when the type is not from the controlled vocabulary.
+    - *classificationGroupScheme*
+        - domain: #ClassificationGroup
+        - comment: The classification scheme 
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Classification Group - Scheme
+    - *partType*
+        - domain: #Part
+        - comment: The segment type of a part. (When parts are included, the resource is ususally a document, so the part type would be the segment type of the document.) 
+        - label: Part - Type
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *partName*
+        - label: Part - Name
+        - domain: #Part
+        - comment: A string that designates the part name. 
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *partLevel*
+        - domain: #Part
+        - range: http://www.w3.org/2001/XMLSchema#positiveInteger
+        - comment: A property of a part - the level of numbering in the host/parent item. 
+        - label: Part - Level
+    - *locationCopyShelfLocator*
+        - label: Location - Copy -- Shelf Locator
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - comment: Shelfmark or other shelving designation that indicates the location identifier for a copy. 
+        - domain: #LocationCopy
+    - *targetAudience*
+        - domain: #ModsResource
+        - comment: The target audience of the resource. Examples: adolescent, adult, general, juvenile, preschool,  specialized. 
+        - label: Target Audience
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *identifier*
+        - comment: identifier is a property for which all terms in the "identifier" vocabulary become subproperties.  Thus for example 'identifer:isbn' is a subproperty saying in effect "has this ISBN" where 'isbn' is a term within that vocabulary. (The prefix 'identifier:' is used to denote the namespace for the "identifier" vocabulary. 
+        - label: Identifier
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - domain: #ModsResource
+        - equivalentProperty: http://id.loc.gov/vocabulary/identifiers/id
+    - *locationCopyEnumerationAndChronologyBasic*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - label: Location - Copy  - Enumeration And Chronology -- Basic
+        - comment: One of three levels of enumerationAndChronology: 'basic' 
+        - domain: #LocationCopy
+        - subPropertyOf: #locationCopyEnumerationAndChronology
+    - *physicalForm*
+        - label: Physical Form
+        - domain: #ModsResource
+        - comment: A particular physical presentation of the resource, including the physical form or medium of material for a resource. Example: oil paint 
+        - range: http://www.w3.org/2001/XMLSchema#string
+    - *locationCopyElectronicLocator*
+        - label: Location - Copy -- Electronic Locator
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - comment: URI of the copy of the resource. 
+        - domain: #LocationCopy
+    - *mediaType*
+        - range: http://www.w3.org/2001/XMLSchema#string
+        - comment: An Internet Media (MIME) type e.g. text/html.  
+        - label: Media Type
+        - domain: #ModsResource
   
 # Annotation Properties:
-dateCapturedEnd
-    * label: Date Captured - End
-    * domain: #ModsResource
-    * comment: When there is both a start and end for the capture date this is the end  date. 
-    * subPropertyOf: dateCaptured
-        * subPropertyOf: #date
-            * comment: An abstract property for which date properties in general are subproperties. 
-            * label: Date
-            * domain: #ModsResource
-        * domain: #ModsResource
-        * label: Date Captured
-        * comment: Date that the resource  was digitized or a subsequent snapshot was taken. 
-dateModifiedEnd
-    * subPropertyOf: dateModified
-        * subPropertyOf: #date
-        * comment: Date when resource was modified. 
-        * label: Date Modified
-        * domain: #ModsResource
-    * label: Date Modified - End
-    * comment: When there is both a start and end for the modification date this is the end date. 
-    * domain: #ModsResource
-partDate
-    * domain: #Part
-    * label: Part Date
-    * subPropertyOf: #date
-    * comment: Date associated with a part. 
-dateCapturedStart
-    * comment: When there is both a start and end for the capture date this is the start date. 
-    * domain: #ModsResource
-    * subPropertyOf rdf:resource="#dateCaptured
-    * label: Date Captured *  Start
-dateCreatedStart
-    * domain: #ModsResource
-    * comment: When there is both a start and end for the creation date this is the start date. 
-    * subPropertyOf: dateCreated
-        * subPropertyOf: #date
-        * comment: The resource's creation date. 
-        * label: Date Created
-        * domain: #ModsResource
-    * label: Date Created - Start
-dateOfCopyrightStart
-    * subPropertyOf: dateOfCopyright
-        * subPropertyOf: #date
-        * comment: Date when resource was copyrighted. 
-        * label: Date of Copyright
-        * domain: #ModsResource
-    * domain: #ModsResource
-    * label: Date of Copyright - Start
-dateValidEnd
-    * comment: When the resource is valid over an interval with a start and end date, this is the end date. (When start and end date are given, it is an assertion that the information was valid over the course of this interval.  It does not necessarily assert that is was not valid before the start or after the end of the interval.) 
-    * label: Date Valid * End
-    * domain: #ModsResource
-    * subPropertyOf: dateValid
-        * subPropertyOf: #date
-        * comment: A date when resource was valid. (Not necessarily the first or last date, but this is an assertion that on that given date the information was valid.) 
-        * label: Date Valid
-        * domain: #ModsResource
-dateValidStart
-    * subPropertyOf: #dateValid
-    * comment: When the resource is valid over an interval with a start and end date, this is the start date. (When start and end date are given, it is an assertion that the information was valid over the course of this interval.  It does not necessarily assert that is was not valid before the start or after the end of the interval.) 
-    * domain: #ModsResource
-    * label: Date Valid - Start
-dateOfCopyrightEnd
-    * subPropertyOf: #dateOfCopyright
-    * domain: #ModsResource
-    * label: Date of Copyright - End
-dateModifiedStart
-    * subPropertyOf: #dateModified
-    * domain: #ModsResource
-    * comment: When there is both a start and end for the modification date this is the start date. 
-    * label: Date Modified - Start
-languageOfResource
-    * domain: #ModsResource
-    * comment: The language (or one of several languages) of the resource.  
-    * label: Language of Resource
-dateCreatedEnd
-    * subPropertyOf: #dateCreated
-    * label: Date Created - End
-    * comment: When there is both a start and end for the creation date this is the end date. 
-    * domain: #ModsResource
-classification
-    * comment: A designation applied to the resource that indicates the subject by applying a formal system of coding and organizing resources according to subject areas.
-    * label: Classification
-    * domain: #ModsResource
-    * equivalentProperty: http://id.loc.gov/vocabulary/classSchemes/classification
-**titleForSort**
-    * comment: titleForSort includes the non*title information (because it may be useful for sorting) that the actual title does not, as well as drops the non*sort characters included in title information. https://github.com/blunalucero/MODS*RDF/issues/1
-    * label: Title for Sort
-    * domain: #ModsResource
-    * subPropertyOf: #title
+    - *dateCapturedEnd*
+        - label: Date Captured - End
+        - domain: #ModsResource
+        - comment: When there is both a start and end for the capture date this is the end  date. 
+        - subPropertyOf: dateCaptured
+            - subPropertyOf: #date
+                - comment: An abstract property for which date properties in general are subproperties. 
+                - label: Date
+                - domain: #ModsResource
+            - domain: #ModsResource
+            - label: Date Captured
+            - comment: Date that the resource  was digitized or a subsequent snapshot was taken. 
+    - *dateModifiedEnd*
+        - subPropertyOf: dateModified
+            - subPropertyOf: #date
+            - comment: Date when resource was modified. 
+            - label: Date Modified
+            - domain: #ModsResource
+        - label: Date Modified - End
+        - comment: When there is both a start and end for the modification date this is the end date. 
+        - domain: #ModsResource
+    - *partDate*
+        - domain: #Part
+        - label: Part Date
+        - subPropertyOf: #date
+        - comment: Date associated with a part. 
+    - *dateCapturedStart*
+        - comment: When there is both a start and end for the capture date this is the start date. 
+        - domain: #ModsResource
+        - subPropertyOf rdf:resource="#dateCaptured
+        - label: Date Captured -  Start
+    - *dateCreatedStart*
+        - domain: #ModsResource
+        - comment: When there is both a start and end for the creation date this is the start date. 
+        - subPropertyOf: dateCreated
+            - subPropertyOf: #date
+            - comment: The resource's creation date. 
+            - label: Date Created
+            - domain: #ModsResource
+        - label: Date Created -  Start
+    - *dateOfCopyrightStart*
+        - subPropertyOf: dateOfCopyright
+            - subPropertyOf: #date
+            - comment: Date when resource was copyrighted. 
+            - label: Date of Copyright
+            - domain: #ModsResource
+        - domain: #ModsResource
+        - label: Date of Copyright -  Start
+    - *dateValidEnd*
+        - comment: When the resource is valid over an interval with a start and end date, this is the end date. (When start and end date are given, it is an assertion that the information was valid over the course of this interval.  It does not necessarily assert that is was not valid before the start or after the end of the interval.) 
+        - label: Date Valid - End
+        - domain: #ModsResource
+        - subPropertyOf: dateValid
+            - subPropertyOf: #date
+            - comment: A date when resource was valid. (Not necessarily the first or last date, but this is an assertion that on that given date the information was valid.) 
+            - label: Date Valid
+            - domain: #ModsResource
+    - *dateValidStart*
+        - subPropertyOf: #dateValid
+        - comment: When the resource is valid over an interval with a start and end date, this is the start date. (When start and end date are given, it is an assertion that the information was valid over the course of this interval.  It does not necessarily assert that is was not valid before the start or after the end of the interval.) 
+        - domain: #ModsResource
+        - label: Date Valid -  Start
+    - *dateOfCopyrightEnd*
+        - subPropertyOf: #dateOfCopyright
+        - domain: #ModsResource
+        - label: Date of Copyright - End
+    - *dateModifiedStart*
+        - subPropertyOf: #dateModified
+        - domain: #ModsResource
+        - comment: When there is both a start and end for the modification date this is the start date. 
+        - label: Date Modified -  Start
+    - *languageOfResource*
+        - domain: #ModsResource
+        - comment: The language (or one of several languages) of the resource.  
+        - label: Language of Resource
+    - *dateCreatedEnd*
+        - subPropertyOf: #dateCreated
+        - label: Date Created - End
+        - comment: When there is both a start and end for the creation date this is the end date. 
+        - domain: #ModsResource
+    - *classification*
+        - comment: A designation applied to the resource that indicates the subject by applying a formal system of coding and organizing resources according to subject areas.
+        - label: Classification
+        - domain: #ModsResource
+        - equivalentProperty: http://id.loc.gov/vocabulary/classSchemes/classification
+    - **titleForSort**
+        - comment: titleForSort includes the non-title information (because it may be useful for sorting) that the actual title does not, as well as drops the non-sort characters included in title information. https://github.com/blunalucero/MODS-RDF/issues/1
+        - label: Title for Sort
+        - domain: #ModsResource
+        - subPropertyOf: #title
 
 # Named Individuals
-integratingResource
-    * type: http://www.loc.gov/mods/rdf/Issuance
-access
-    * type: http://www.loc.gov/mods/rdf/ReformattingQuality
-digitizedMicrofilm
-    * type: http://www.loc.gov/mods/rdf/DigitalOrigin
-serial
-    * type: http://www.loc.gov/mods/rdf/Issuance
-digitizedAnalog
-    * type: http://www.loc.gov/mods/rdf/DigitalOrigin
-monographic
-    * type: http://www.loc.gov/mods/rdf/Issuance
-reformattedDigital
-    * type: http://www.loc.gov/mods/rdf/DigitalOrigin
+    - *integratingResource*
+        - type: http://www.loc.gov/mods/rdf/Issuance
+    - *access*
+        - type: http://www.loc.gov/mods/rdf/ReformattingQuality
+    - *digitizedMicrofilm*
+        - type: http://www.loc.gov/mods/rdf/DigitalOrigin
+    - *serial*
+        - type: http://www.loc.gov/mods/rdf/Issuance
+    - *digitizedAnalog*
+        - type: http://www.loc.gov/mods/rdf/DigitalOrigin
+    - *monographic*
+        - type: http://www.loc.gov/mods/rdf/Issuance
+    - *reformattedDigital*
+        - type: http://www.loc.gov/mods/rdf/DigitalOrigin
 
 
-#Transformation*specific changes
-**MARC relators used for role object properties**
-    * anything not fitting one of those is added as note
-    * https://github.com/blunalucero/MODS*RDF/issues/2
+#Transformation-specific changes
+    - MARC relators used for role object properties
+        - anything not fitting one of those is added as note
+        - https://github.com/blunalucero/MODS-RDF/issues/2
 
 
