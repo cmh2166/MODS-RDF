@@ -43,6 +43,7 @@ AdminMetadata
 	* label: Administrative Metadata
 	* comment: Administrative metadata for the description
 	* URI: http://id.loc.gov/ontologies/RecordInfo#AdminMetadata
+    
 Cartographics
 	* label: MODS - Cartographic Information
 	* comment: Aggregates cartographic properties
