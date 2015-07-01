@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:fo="http://www.w3.org/1999/XSL/Format"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:fn="http://www.w3.org/2005/xpath-functions"
+         xmlns:mods="http://www.loc.gov/mods/v3"
+         xmlns:modsrdf="http://www.loc.gov/standards/mods/modsrdf/v1/"
+         xmlns:madsrdf="http://www.loc.gov/mads/rdf/v1#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:identifier="http://id.loc.gov/vocabulary/identifier/"
+         xmlns:relator="http://id.loc.gov/vocabulary/relator/"
+         xmlns:note="http://id.loc.gov/vocabulary/note/"
+         xmlns:abstract="http://id.loc.gov/vocabulary/abstract/"
+         xmlns:access="http://id.loc.gov/vocabulary/access/"
+         xmlns:class="http://id.loc.gov/vocabulary/class/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:ri="http://id.loc.gov/ontologies/RecordInfo#"
+         xmlns:xlink="http://www.w3.org/1999/xlink"><!--This RDF description created by the stylesheet at http://www.loc.gov/standards/mods/modsrdf/xsl-files/modsrdf.xsl--><!--
+*******************************************************
+   Top level element
+*******************************************************
+-->
+   <modsrdf:ModsResource rdf:about="http://www.loc.gov/mods/rdf/v1#MODS123456">
+
+<!--
+	
+*******************************************************
+   rdf:type  statement for each resource type
+*******************************************************
+-->
+      <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceType#Text"/>
+      <!--
+	*******************************************************
+  names
+*******************************************************
+-->      <!--
+			** Name **			
+			-->
+      <namePrincipal xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <PersonalName xmlns="http://www.loc.gov/mads/rdf/v1#" rdf:about="d1">
+            <label xmlns="http://www.w3.org/2000/01/rdf-schema#">Bull, Thomas.</label>
+            <elementList rdf:parseType="Collection">
+               <FullNameElement>
+                  <elementValue>Bull, Thomas.</elementValue>
+               </FullNameElement>
+            </elementList>
+         </PersonalName>
+      </namePrincipal>
+      <!--
+	
+*******************************************************
+  titles
+*******************************************************
+-->
+      <!--
+		
+*******  Principal Title
+-->
+      <titlePrincipal xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <Title xmlns="http://www.loc.gov/mads/rdf/v1#">
+            <label xmlns="http://www.w3.org/2000/01/rdf-schema#">Resolutions of common sense about common rights</label>
+            <elementList rdf:parseType="Collection">
+
+               <mainTitleElement>
+                  <elementValue>Resolutions of common sense about common rights</elementValue>
+               </mainTitleElement>
+            </elementList>
+         </Title>
+      </titlePrincipal>
+      <!--
+
+***************************
+identifier(s)
+***************************
+-->
+      <modsrdf:identifierGroup>
+         <IdentifierGroup xmlns="http://www.loc.gov/mods/rdf/v1#">
+            <identifierGroupType>local</identifierGroupType>
+            <identifierGroupValue>31498</identifierGroupValue>
+         </IdentifierGroup>
+      </modsrdf:identifierGroup>
+
+      <modsrdf:identifierGroup>
+         <IdentifierGroup xmlns="http://www.loc.gov/mods/rdf/v1#">
+            <identifierGroupType>local</identifierGroupType>
+            <identifierGroupValue>17126</identifierGroupValue>
+         </IdentifierGroup>
+      </modsrdf:identifierGroup>
+
+      <modsrdf:identifierGroup>
+         <IdentifierGroup xmlns="http://www.loc.gov/mods/rdf/v1#">
+            <identifierGroupType>pid</identifierGroupType>
+            <identifierGroupValue>uva-lib:2477384</identifierGroupValue>
+         </IdentifierGroup>
+      </modsrdf:identifierGroup>
+
+      <modsrdf:identifierGroup>
+         <IdentifierGroup xmlns="http://www.loc.gov/mods/rdf/v1#">
+            <identifierGroupType>uri</identifierGroupType>
+            <identifierGroupValue>uva-lib:2477384</identifierGroupValue>
+         </IdentifierGroup>
+      </modsrdf:identifierGroup>
+
+      <modsrdf:identifierGroup>
+         <IdentifierGroup xmlns="http://www.loc.gov/mods/rdf/v1#">
+            <identifierGroupType>oclc</identifierGroupType>
+            <identifierGroupValue>47845953</identifierGroupValue>
+         </IdentifierGroup>
+      </modsrdf:identifierGroup>
+      <!--
+
+***************************
+subject(s)
+***************************
+-->      <subjectComplex xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <ComplexSubject xmlns="http://www.loc.gov/mads/rdf/v1#">
+            <rdfs:label>Paine, Thomas. 1737-1809. Common sense. </rdfs:label>
+            <componentList rdf:parseType="Collection">
+
+</componentList>
+         </ComplexSubject>
+      </subjectComplex>
+      <!--
+ ******* subject: topic
+-->      <subjectTopic xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <Topic xmlns="http://www.loc.gov/mads/rdf/v1#">
+            <label xmlns="http://www.w3.org/2000/01/rdf-schema#">Natural law</label>
+            <elementList rdf:parseType="Collection">
+               <TopicElement>
+                  <elementValue>Natural law</elementValue>
+               </TopicElement>
+            </elementList>
+
+         </Topic>
+      </subjectTopic>
+      <subjectComplex xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <ComplexSubject xmlns="http://www.loc.gov/mads/rdf/v1#">
+            <rdfs:label>Civil rights. Great Britain. </rdfs:label>
+            <componentList rdf:parseType="Collection">
+
+               <Topic>
+                  <label xmlns="http://www.w3.org/2000/01/rdf-schema#">Civil rights</label>
+                  <elementList rdf:parseType="Collection">
+                     <TopicElement>
+                        <elementValue>Civil rights</elementValue>
+                     </TopicElement>
+                  </elementList>
+
+               </Topic>
+               <Geographic>
+                  <label xmlns="http://www.w3.org/2000/01/rdf-schema#">Great Britain</label>
+                  <elementList rdf:parseType="Collection">
+                     <GeographicElement>
+                        <elementValue>Great Britain</elementValue>
+                     </GeographicElement>
+                  </elementList>
+
+               </Geographic>
+            </componentList>
+         </ComplexSubject>
+      </subjectComplex>
+      <subjectComplex xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <ComplexSubject xmlns="http://www.loc.gov/mads/rdf/v1#">
+            <rdfs:label>Civil rights. Religious aspects. </rdfs:label>
+            <componentList rdf:parseType="Collection">
+
+               <Topic>
+                  <label xmlns="http://www.w3.org/2000/01/rdf-schema#">Civil rights</label>
+                  <elementList rdf:parseType="Collection">
+                     <TopicElement>
+                        <elementValue>Civil rights</elementValue>
+                     </TopicElement>
+                  </elementList>
+
+               </Topic>
+               <Topic>
+                  <label xmlns="http://www.w3.org/2000/01/rdf-schema#">Religious aspects</label>
+                  <elementList rdf:parseType="Collection">
+                     <TopicElement>
+                        <elementValue>Religious aspects</elementValue>
+                     </TopicElement>
+                  </elementList>
+
+               </Topic>
+            </componentList>
+         </ComplexSubject>
+      </subjectComplex>
+      <!--
+ ******* subject: topic
+-->      <subjectTopic xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <Topic xmlns="http://www.loc.gov/mads/rdf/v1#">
+            <label xmlns="http://www.w3.org/2000/01/rdf-schema#">Political science</label>
+            <elementList rdf:parseType="Collection">
+               <TopicElement>
+                  <elementValue>Political science</elementValue>
+               </TopicElement>
+            </elementList>
+
+         </Topic>
+      </subjectTopic>
+
+      <!--
+
+***************************
+genre(s)
+***************************
+-->      <!--
+		
+*******genre
+-->      <modsrdf:genre>
+         <GenreForm xmlns="http://www.loc.gov/mads/rdf/v1#">
+            <rdf:type rdf:resource="http://www.loc.gov/mads/rdf/v1#GenreForm"/>
+            <rdfs:label>Broadsides-England-London-1776.</rdfs:label>
+            <elementList rdf:parseType="Collection">
+               <GenreFormElement>
+                  <elementValue>Broadsides-England-London-1776.</elementValue>
+               </GenreFormElement>
+            </elementList>
+         </GenreForm>
+      </modsrdf:genre>
+
+
+      <!--
+	
+*************************
+other elements 
+*************************
+-->
+      <!--
+		
+*******language
+-->
+      <LanguageOfResource xmlns="http://www.loc.gov/mods/rdf/v1#"
+                          rdf:resource="http://id.loc.gov/vocabulary/language#eng"/>
+      <!--
+		
+***************location
+-->      <locationOfResource xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <Location>
+            <locationCopy>
+               <Copy>
+                  <locationCopySubLocation>SPEC-COLL</locationCopySubLocation>
+                  <locationCopyShelfLocator>STACKS</locationCopyShelfLocator>
+                  <locationCopyNote>Broadside 1776 .B85</locationCopyNote>
+                  <locationCopyNote>ALPHANUM</locationCopyNote>
+                  <locationCopyNote>X030270564</locationCopyNote>
+               </Copy>
+            </locationCopy>
+         </Location>
+      </locationOfResource>
+
+      <!--
+		
+*******place of origin
+-->
+      <placeOfOrigin xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <Geographic xmlns="http://www.loc.gov/mads/rdf/v1#">
+            <label xmlns="http://www.w3.org/2000/01/rdf-schema#">enk</label>
+            <elementList rdf:parseType="Collection">
+               <GeographicElement>
+                  <elementValue>enk</elementValue>
+               </GeographicElement>
+            </elementList>
+         </Geographic>
+      </placeOfOrigin>
+      <!--
+		
+*******place of origin
+-->
+      <placeOfOrigin xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <Geographic xmlns="http://www.loc.gov/mads/rdf/v1#">
+            <label xmlns="http://www.w3.org/2000/01/rdf-schema#">London (St. John's Square)</label>
+            <elementList rdf:parseType="Collection">
+               <GeographicElement>
+                  <elementValue>London (St. John's Square)</elementValue>
+               </GeographicElement>
+            </elementList>
+         </Geographic>
+      </placeOfOrigin>
+      <!--
+		
+*******  publisher
+-->
+      <publisher xmlns="http://www.loc.gov/mods/rdf/v1#">
+         <CorporateName xmlns="http://www.loc.gov/mads/rdf/v1#">
+            <label xmlns="http://www.w3.org/2000/01/rdf-schema#">Printed by R. &amp; R. Gilbert</label>
+            <elementList rdf:parseType="Collection">
+               <FullNameElement>
+                  <elementValue>Printed by R. &amp; R. Gilbert</elementValue>
+               </FullNameElement>
+            </elementList>
+         </CorporateName>
+      </publisher>
+      <resourceDateIssued xmlns="http://www.loc.gov/mods/rdf/v1#" rdf:datatype="xsd:string">[1776?]</resourceDateIssued>
+      <resourceDateIssued xmlns="http://www.loc.gov/mods/rdf/v1#" rdf:datatype="xsd:date">1776</resourceDateIssued>
+
+      <!--**********issuance-->
+      <issuance xmlns="http://www.loc.gov/mods/rdf/v1#">monographic</issuance>
+
+
+      <!--**********frequency-->
+      <frequency xmlns="http://www.loc.gov/mods/rdf/v1#"/>
+
+
+      <!--
+		
+*******note - no type
+-->
+      <modsrdf:note>Includes resolves: that subjects have no common rights, because all men are not fit for all things; that the natural rights of man, are the rights of man in a state of nature; when man became a member of society, secured by laws, natural rights became civil rights; natural rights are further restrained by the laws of religions; when a member of a Christian society pleads his natural rights, he is declaring his intention to break the laws of civil society, and the restraints of religion, and go back to the state of nature.</modsrdf:note>
+
+      <!--
+		
+*******note - no type
+-->
+      <modsrdf:note>SPECIAL COLLECTIONS: Richard Maass Thomas Paine Collection. Gift of Richard Maass, 1996.</modsrdf:note>
+
+
+
+      <!--**********digitalOrigin-->
+      <digitalOrigin xmlns="http://www.loc.gov/mods/rdf/v1#">reformatted digital</digitalOrigin>
+
+
+      <!--**********physicalForm-->
+      <physicalForm xmlns="http://www.loc.gov/mods/rdf/v1#">print</physicalForm>
+
+
+      <!--**********physicalExtent-->
+      <physicalExtent xmlns="http://www.loc.gov/mods/rdf/v1#">1 sheet ([1] p.) ; 28 x 20 cm.</physicalExtent>
+
+
+ </modsrdf:ModsResource>
+</rdf:RDF>

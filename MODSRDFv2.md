@@ -70,10 +70,9 @@ For reference, if you're still reading this, **bold** means a v2 datapoint added
         - comment: The resource which is the subject of this description.
         - URI: http://www.loc.gov/mods/rdf/v1#ModsResource
         - Equivalent: http://id.loc.gov/vocabulary/resourceTypes/Res
-    - *NoteGroup*
-    	- label: MODS - Note Typed
-    	- comment: Aggregates a note with its type.
-    	- URI: http://www.loc.gov/mods/rdf/v1#NoteGroup
+    - **NoteGroup**
+        - Removed as note properties mean no aggregation needed. See https://github.com/blunalucero/MODS-RDF/issues/3
+        - Just use specific property
     - *Part*
     	- label: MODS - Part
     	- comment: An aggregator for part properties.
@@ -743,39 +742,11 @@ For reference, if you're still reading this, **bold** means a v2 datapoint added
         - type: http://www.loc.gov/mods/rdf/Issuance
     - *reformattedDigital*
         - type: http://www.loc.gov/mods/rdf/DigitalOrigin
-    - **Acquisition** 
-        - type: http://www.loc.gov/standards/mods/modsrdf/v1/#noteGroupType
-        - equivalentProperty: BF:immediateAcquisition
-        - comment: https://github.com/blunalucero/MODS-RDF/wiki/Note-Type-Draft-Proposal
-    - **Citation**
-        - type: http://www.loc.gov/standards/mods/modsrdf/v1/#noteGroupType
-        - comment: https://github.com/blunalucero/MODS-RDF/wiki/Note-Type-Draft-Proposal
-    - **Credits**
-        - type: http://www.loc.gov/standards/mods/modsrdf/v1/#noteGroupType
-        - equivalentProperty: BF:creditsNote
-        - comment: https://github.com/blunalucero/MODS-RDF/wiki/Note-Type-Draft-Proposal
-    - **Performers**
-        - type: http://www.loc.gov/standards/mods/modsrdf/v1/#noteGroupType
-        - equivalentProperty: BF:performerNote
-        - comment: https://github.com/blunalucero/MODS-RDF/wiki/Note-Type-Draft-Proposal
-    - **Ownership**
-        - type: http://www.loc.gov/standards/mods/modsrdf/v1/#noteGroupType
-        - equivalentProperty: BF:custodialHistory
-        - comment: https://github.com/blunalucero/MODS-RDF/wiki/Note-Type-Draft-Proposal
-    - **StatementOfResponsibility**
-        - type: http://www.loc.gov/standards/mods/modsrdf/v1/#noteGroupType
-        - equivalentProperty: BF:responsibilityStatement
-        - comment: https://github.com/blunalucero/MODS-RDF/wiki/Note-Type-Draft-Proposal
-    - **Thesis**
-        - type: http://www.loc.gov/standards/mods/modsrdf/v1/#noteGroupType
-        - equivalentProperty: BF:dissertationNote
-        - comment: https://github.com/blunalucero/MODS-RDF/wiki/Note-Type-Draft-Proposal
-    - **Funding**
-        - type: http://www.loc.gov/standards/mods/modsrdf/v1/#noteGroupType
-        - comment: https://github.com/blunalucero/MODS-RDF/wiki/Note-Type-Draft-Proposal
-    - **Exhibitions**
-        - type: http://www.loc.gov/standards/mods/modsrdf/v1/#noteGroupType
-    - **Medium of performance** 
-        - equivalentProperty: BF:musicMediumNote (Literal) 
-        - equivalentProperty: BF:musicMedium (URI)
-        - type: http://www.loc.gov/standards/mods/modsrdf/v1/#noteGroupType
+
+
+#Transformation-specific changes
+    - MARC relators used for role object properties
+        - anything not fitting one of those is added as note
+        - https://github.com/blunalucero/MODS-RDF/issues/2
+
+
